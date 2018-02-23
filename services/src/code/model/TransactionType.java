@@ -13,7 +13,8 @@ public enum TransactionType
     CREATE("Create"),
     READ("Read"),
     DELETE("Delete"),
-    UPDATE("Update");
+    UPDATE("Update"),
+    EXPORT("Export");
 
     private static final Map<String, TransactionType> lookup = new HashMap<>();
 

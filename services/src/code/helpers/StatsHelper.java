@@ -40,6 +40,7 @@ public class StatsHelper
         Map<String, Integer> systemLogs = new HashMap<>();
         Map<String, Integer> userLogs = new HashMap<>();
         Map<String, Integer> failedLoginLogs = new HashMap<>();
+        Map<String, Integer> userExports = new HashMap<>();
 
         auditLogList.forEach(auditLog -> {
 
@@ -65,11 +66,21 @@ public class StatsHelper
                     failedLoginLogs.put(auditLog.getUsername(), 1);
                 }
             }
+
+            //Sort out User Exports
+            if (auditLog.getTransactionType() == TransactionType.EXPORT) {
+                if (userExports.containsKey(auditLog.getUsername())) {
+                    userExports.put(auditLog.getUsername(), userExports.get(auditLog.getUsername()) + 1);
+                } else {
+                    userExports.put(auditLog.getUsername(), 1);
+                }
+            }
         });
 
         stats.setSystemLogs(systemLogs);
         stats.setUserLogs(userLogs);
         stats.setFailedLogins(failedLoginLogs);
+        stats.setUserExports(userExports);
 
         return stats;
     }

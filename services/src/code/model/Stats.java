@@ -15,6 +15,8 @@ public class Stats
 
     private Map<String, Integer> failedLogins;
 
+    private Map<String, Integer> userExports;
+
     public int getTotalLogs()
     {
         return totalLogs;
@@ -53,6 +55,16 @@ public class Stats
     public void setFailedLogins(Map<String, Integer> failedLogins)
     {
         this.failedLogins = failedLogins;
+    }
+
+    public Map<String, Integer> getUserExports()
+    {
+        return userExports;
+    }
+
+    public void setUserExports(Map<String, Integer> userExports)
+    {
+        this.userExports = userExports;
     }
 
 }
