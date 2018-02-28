@@ -1,0 +1,11 @@
+.container {
+    width: 64px;
+    background:#2196F3;
+    display: flex;
+}
+
+.navigation {
+    list-style: none;
+    width: 48px;
+    padding: 0 8px;
+}
