@@ -27,7 +27,7 @@ public class GetAuditLogsRequestTest
         searchQuery.setSystem("System A");
 
         //Execute
-        List<AuditLog> logs = GetAuditLogsRequest.getAuditLogs(searchQuery);
+        List<AuditLog> logs = (List<AuditLog>)GetAuditLogsRequest.getAuditLogs(searchQuery).getEntity();
 
         //Test
         logs.forEach(auditLog1 -> {

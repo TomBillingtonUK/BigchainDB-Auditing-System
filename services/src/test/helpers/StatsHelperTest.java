@@ -28,8 +28,8 @@ public class StatsHelperTest
         Stats stats = StatsHelper.getStats();
 
         //Test
-        Assert.assertTrue(stats.getSystemLogs().get("statsHelperTest-System") > 0);
-        Assert.assertTrue(stats.getUserLogs().get("statsHelperTest-Username") > 0);
-        Assert.assertTrue(stats.getFailedLogins().get("statsHelperTest-Username") > 0);
+        Assert.assertTrue(stats.getSystemLogs().size() > 0);
+        Assert.assertTrue(stats.getFailedLogins().size() > 0);
+        Assert.assertTrue(stats.getUserLogs().size() > 0);
     }
 }

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import auditLogsReducer from './auditLogsReducer';
-import statisticsReducer from './statisticsReducer';
+import AuditLogsReducer from './auditLogsReducer';
+import StatisticsReducer from './statisticsReducer';
 
 export const rootReducer = combineReducers({
-    auditLogs : auditLogsReducer,
-    statistics : statisticsReducer
+    auditLogs : AuditLogsReducer,
+    statistics : StatisticsReducer
 });

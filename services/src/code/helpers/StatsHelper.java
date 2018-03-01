@@ -1,15 +1,10 @@
 package code.helpers;
 
 import code.exceptions.AuditingException;
-import code.model.AuditLog;
-import code.model.SearchQuery;
-import code.model.Stats;
-import code.model.TransactionType;
+import code.model.*;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /*
     This class is used to assist with calculating statistics
@@ -77,12 +72,36 @@ public class StatsHelper
             }
         });
 
-        stats.setSystemLogs(systemLogs);
-        stats.setUserLogs(userLogs);
-        stats.setFailedLogins(failedLoginLogs);
-        stats.setUserExports(userExports);
+        stats.setSystemLogs(convertToSystemStatArrayList(systemLogs));
+        stats.setUserLogs(convertToUserStatArrayList(userLogs));
+        stats.setFailedLogins(convertToUserStatArrayList(failedLoginLogs));
+        stats.setUserExports(convertToUserStatArrayList(userExports));
 
         return stats;
+    }
+
+    private static ArrayList<UserStat> convertToUserStatArrayList(Map<String, Integer> stats)
+    {
+        ArrayList<UserStat> userStats = new ArrayList<>();
+        Iterator it = stats.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry<String, Integer> pair = (Map.Entry<String, Integer>) it.next();
+            userStats.add(new UserStat(pair.getKey(), pair.getValue()));
+        }
+
+        return userStats;
+    }
+
+    private static ArrayList<SystemStat> convertToSystemStatArrayList(Map<String, Integer> stats)
+    {
+        ArrayList<SystemStat> systemStats = new ArrayList<>();
+        Iterator it = stats.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry<String, Integer> pair = (Map.Entry<String, Integer>) it.next();
+            systemStats.add(new SystemStat(pair.getKey(), pair.getValue()));
+        }
+
+        return systemStats;
     }
 
 }

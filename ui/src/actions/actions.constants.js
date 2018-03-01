@@ -1,1 +1,1 @@
-export const baseUrl = 'http://www.url.com/';
+export const baseUrl = 'http://uni-virtualbox:9080/auditingService/';

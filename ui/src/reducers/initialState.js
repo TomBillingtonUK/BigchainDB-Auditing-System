@@ -15,37 +15,13 @@ export default {
         transactionType: "DELETE",
         username: "User B"
     },],
-    statistics: {
-        totalLogs: 14,
-        failedLogins:
-            [
-                {
-                    username: "User A",
-                    amount: 2
-                }
-            ],
-        systemLogs:
-            [
-                {
-                    system: "System A",
-                    amount: 6
-                }
-            ],
-        userExports:
-            [
-                {
-                    username: "User A",
-                    amount: 1
-                }
-            ],
-        userLogs:
-            [
-                {
-                    username: "User A",
-                    amount: 6
-                }
-            ]
-    }
-    ,
+    statistics: {},
+    filter: {
+        system: "",
+        username: "",
+        transactionType: "CREATE",
+        timestamp_start: "",
+        timestamp_end: ""
+    },
     settings: {},
 };

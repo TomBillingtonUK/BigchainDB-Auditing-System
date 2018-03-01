@@ -1,6 +1,6 @@
 package code.model;
 
-import java.util.Map;
+import java.util.List;
 
 /*
     Class used for the response of the Get Stats Request
@@ -9,13 +9,13 @@ public class Stats
 {
     private int totalLogs;
 
-    private Map<String, Integer> systemLogs;
+    private List<SystemStat> systemLogs;
 
-    private Map<String, Integer> userLogs;
+    private List<UserStat> userLogs;
 
-    private Map<String, Integer> failedLogins;
+    private List<UserStat> failedLogins;
 
-    private Map<String, Integer> userExports;
+    private List<UserStat> userExports;
 
     public int getTotalLogs()
     {
@@ -27,42 +27,42 @@ public class Stats
         this.totalLogs = totalLogs;
     }
 
-    public Map<String, Integer> getSystemLogs()
+    public List<SystemStat> getSystemLogs()
     {
         return systemLogs;
     }
 
-    public void setSystemLogs(Map<String, Integer> systemLogs)
+    public void setSystemLogs(List<SystemStat> systemLogs)
     {
         this.systemLogs = systemLogs;
     }
 
-    public Map<String, Integer> getUserLogs()
+    public List<UserStat> getUserLogs()
     {
         return userLogs;
     }
 
-    public void setUserLogs(Map<String, Integer> userLogs)
+    public void setUserLogs(List<UserStat> userLogs)
     {
         this.userLogs = userLogs;
     }
 
-    public Map<String, Integer> getFailedLogins()
+    public List<UserStat> getFailedLogins()
     {
         return failedLogins;
     }
 
-    public void setFailedLogins(Map<String, Integer> failedLogins)
+    public void setFailedLogins(List<UserStat> failedLogins)
     {
         this.failedLogins = failedLogins;
     }
 
-    public Map<String, Integer> getUserExports()
+    public List<UserStat> getUserExports()
     {
         return userExports;
     }
 
-    public void setUserExports(Map<String, Integer> userExports)
+    public void setUserExports(List<UserStat> userExports)
     {
         this.userExports = userExports;
     }

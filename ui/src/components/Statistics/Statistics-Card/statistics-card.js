@@ -12,35 +12,44 @@ import styles from './statistics-card.css';
 
 export default class StatisticsCard extends React.Component {
 
-    render (){
+    render() {
 
-        const {title, data, header1, header2, key1, key2} = this.props
+        const { title, data, header1, header2, key1, key2 } = this.props
 
-        return(
+        let content = "";
+
+        if (data === null || data === undefined || data.length == null) {
+            content = (<p>No data</p>)
+        } else {
+            content = (
+                <Table>
+                    <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
+                        <TableHeaderColumn>{header1}</TableHeaderColumn>
+                        <TableHeaderColumn>{header2}</TableHeaderColumn>
+                    </TableHeader>
+                    <TableBody displayRowCheckbox={false}>
+                        {data.map(dataRow => {
+                            return (
+                                <TableRow>
+                                    <TableRowColumn>{dataRow[key1]}</TableRowColumn>
+                                    <TableRowColumn>{dataRow[key2]}</TableRowColumn>
+                                </TableRow>
+                            )
+                        })}
+                    </TableBody>
+                </Table>
+            )
+        }
+
+        return (
             <Card className={styles.card}>
                 <CardHeader>
                     <h3>{title}</h3>
                 </CardHeader>
                 <CardText>
-                    <Table>
-                        <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
-                            <TableHeaderColumn>{header1}</TableHeaderColumn>
-                            <TableHeaderColumn>{header2}</TableHeaderColumn>    
-                        </TableHeader>
-                        <TableBody displayRowCheckbox={false}>
-                            {data.map(dataRow => {
-                                return (
-                                    <TableRow>
-                                        <TableRowColumn>{dataRow[key1]}</TableRowColumn>
-                                        <TableRowColumn>{dataRow[key2]}</TableRowColumn>
-                                    </TableRow>
-                                )
-                            })}
-                        </TableBody>
-                    </Table>
+                    {content}
                 </CardText>
             </Card>
         )
     }
-
 }

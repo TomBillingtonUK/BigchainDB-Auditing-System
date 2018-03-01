@@ -7,9 +7,9 @@ export function receiveAuditLogs(data) {
 
 export function fetchAuditLogs() {
     return dispatch => {
-        return fetch(baseUrl + '/get',
+        return fetch(baseUrl + 'get',
             {
-                method: 'GET',
+                method: 'POST',
                 headers: {
                     'Accept': 'application/json'
                 }

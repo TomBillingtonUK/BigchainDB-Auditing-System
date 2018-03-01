@@ -1,7 +1,7 @@
 import initialState from './initialState';
 import { FETCH_AUDIT_LOGS, RECIEVE_AUDIT_LOGS } from '../actions/actionTypes';
 
-export default function StatisticsReducer(state = initialState.auditLogs, action) {
+export default function AuditLogsReducer(state = initialState.auditLogs, action) {
     let newState;
     switch (action.type) {
         case FETCH_AUDIT_LOGS:
