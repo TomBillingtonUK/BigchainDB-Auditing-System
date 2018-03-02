@@ -7,7 +7,6 @@ import code.validators.CreateAuditLogValidator;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 /*
     This class is the entry point for creating an Audit Log
@@ -18,7 +17,7 @@ public class CreateAuditLogRequest
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public static Response createAuditLog(AuditLog auditLog)
+    public static String createAuditLog(AuditLog auditLog)
     {
         try {
             //Validate the data provided
@@ -28,15 +27,7 @@ public class CreateAuditLogRequest
             String transactionId = BigchainDBHelper.createAuditLog(auditLog);
 
             //Send Success Response
-            return Response
-                    .status(200)
-                    .header("Access-Control-Allow-Origin", "*")
-                    .header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
-                    .header("Access-Control-Allow-Credentials", "true")
-                    .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
-                    .header("Access-Control-Max-Age", "1209600")
-                    .entity(ResponseBuilder(transactionId))
-                    .build();
+            return ResponseBuilder(transactionId);
 
         } catch (AuditingException exception) {
             switch (exception.getExceptionType()) {

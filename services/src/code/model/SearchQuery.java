@@ -40,14 +40,14 @@ public class SearchQuery
         return dateFrom;
     }
 
-    public void setDateFrom(LocalDateTime dateFrom)
-    {
-        this.dateFrom = dateFrom;
-    }
-
     public void setDateFrom(String dateTo)
     {
         this.dateFrom = DateHelper.stringToDate(dateTo);
+    }
+
+    public void setDateFrom(LocalDateTime dateFrom)
+    {
+        this.dateFrom = dateFrom;
     }
 
     public LocalDateTime getDateTo()
@@ -55,14 +55,14 @@ public class SearchQuery
         return dateTo;
     }
 
-    public void setDateTo(LocalDateTime dateTo)
-    {
-        this.dateTo = dateTo;
-    }
-
     public void setDateTo(String dateTo)
     {
         this.dateTo = DateHelper.stringToDate(dateTo);
+    }
+
+    public void setDateTo(LocalDateTime dateTo)
+    {
+        this.dateTo = dateTo;
     }
 
     public String getSystem()

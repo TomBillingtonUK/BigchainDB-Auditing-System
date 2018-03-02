@@ -25,7 +25,7 @@ public class GetStatsRequestTest
         TestUtilities.createAuditLogAndWaitForProcessing(auditLog);
 
         //Execute
-        Stats stats = (Stats)GetStatsRequest.getStats().getEntity();
+        Stats stats = GetStatsRequest.getStats();
 
         //Test
         Assert.assertTrue(stats.getSystemLogs().size() > 0);

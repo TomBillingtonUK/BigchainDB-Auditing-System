@@ -53,11 +53,6 @@ public class AuditLog
         return date;
     }
 
-    public void setDate(LocalDateTime date)
-    {
-        this.date = date;
-    }
-
     public void setDate(String date)
     {
         try {
@@ -65,6 +60,11 @@ public class AuditLog
         } catch (Exception exception) {
             this.date = null;
         }
+    }
+
+    public void setDate(LocalDateTime date)
+    {
+        this.date = date;
     }
 
     public String getTimestamp()

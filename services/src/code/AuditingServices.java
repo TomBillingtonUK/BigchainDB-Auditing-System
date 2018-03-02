@@ -21,6 +21,7 @@ public class AuditingServices extends Application
         hashSet.add(CreateAuditLogRequest.class);
         hashSet.add(GetAuditLogsRequest.class);
         hashSet.add(GetStatsRequest.class);
+        hashSet.add(CorsFilter.class);
 
         return hashSet;
     }

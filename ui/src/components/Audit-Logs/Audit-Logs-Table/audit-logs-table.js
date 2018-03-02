@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './audit-logs-table.css'
 import {
     Table,
     TableBody,

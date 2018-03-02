@@ -11,9 +11,18 @@ export function fetchAuditLogs(filterCriteria) {
             {
                 method: 'POST',
                 headers: {
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
                 },
-                body : filterCriteria
+                body: JSON.stringify(
+                    {
+                        timeStamp_start: filterCriteria.timeStamp_start,
+                        timeStamp_end: filterCriteria.timeStamp_end,
+                        system: filterCriteria.system,
+                        userName: filterCriteria.userName,
+                        transactionType: filterCriteria.transactionType
+                    }
+                )
             })
             .then(response =>
                 response.json().then(data => ({

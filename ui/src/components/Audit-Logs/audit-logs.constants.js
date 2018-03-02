@@ -1,7 +1,4 @@
 export const InitiaFilterCriteria = {
-    system: '',
-    username: '',
-    transactionType: '',
-    timestamp_start: '',
-    timestamp_end: ''
+    timestamp_start : new Date(),
+    timestamp_end : new Date()
 }

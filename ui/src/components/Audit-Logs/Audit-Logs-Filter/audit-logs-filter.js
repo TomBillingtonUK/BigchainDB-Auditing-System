@@ -4,7 +4,6 @@ import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
-import styles from './audit-logs-filter.css'
 
 export default class AuditLogFiter extends React.Component {
 
@@ -48,26 +47,31 @@ export default class AuditLogFiter extends React.Component {
             <div>
                 <p> Date From : </p>
                 <DatePicker
+                    id="filter-date-from"
                     onChange={this.updateDateFrom}
                     value={filterData.timestamp_start}
                 />
                 <p> Date To : </p>
                 <DatePicker
+                    id="filter-date-from"
                     onChange={this.updateDateTo}
                     value={filterData.timestamp_end}
                 />
                 <p> System : </p>
                 <TextField
+                    id="filter-system"
                     onChange={this.updateSystem}
                     value={filterData.system}
                 />
                 <p> Username : </p>
                 <TextField
+                    id="filter-username"
                     onChange={this.updateUsername}
                     value={filterData.username}
                 />
                 <p> Type : </p>
                 <SelectField
+                    id="filter-transaction-type"
                     onChange={this.updateType}
                     value={filterData.transactionType}
                 >

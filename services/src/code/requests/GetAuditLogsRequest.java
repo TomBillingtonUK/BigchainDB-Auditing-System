@@ -2,12 +2,13 @@ package code.requests;
 
 import code.exceptions.AuditingException;
 import code.helpers.SearchHelper;
+import code.model.AuditLog;
 import code.model.SearchQuery;
 import code.validators.GetAuditLogsValidator;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import java.util.List;
 
 /*
     This class is the entry point for getting audit logs
@@ -19,22 +20,14 @@ public class GetAuditLogsRequest
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public static Response getAuditLogs(SearchQuery query)
+    public static List<AuditLog> getAuditLogs(SearchQuery query)
     {
         try {
             //Validate
             GetAuditLogsValidator.validate(query);
 
             //Get logs
-            return Response
-                    .status(200)
-                    .header("Access-Control-Allow-Origin", "*")
-                    .header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
-                    .header("Access-Control-Allow-Credentials", "true")
-                    .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
-                    .header("Access-Control-Max-Age", "1209600")
-                    .entity(SearchHelper.search(query))
-                    .build();
+            return SearchHelper.search(query);
 
         } catch (AuditingException exception) {
             switch (exception.getExceptionType()) {

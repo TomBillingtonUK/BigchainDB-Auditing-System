@@ -19,7 +19,7 @@ public class CreateAuditLogRequestTest
                 new AuditLog(LocalDateTime.now(), "System A", "User A", TransactionType.CREATE, "Message A");
 
         //Execute
-        String transactionId = (String)CreateAuditLogRequest.createAuditLog(auditLog).getEntity();
+        String transactionId = CreateAuditLogRequest.createAuditLog(auditLog);
 
         //Verify
         Assert.assertNotNull(transactionId);
