@@ -5,14 +5,15 @@ export function receiveAuditLogs(data) {
     return { type: types.RECIEVE_AUDIT_LOGS, auditLogs: data };
 }
 
-export function fetchAuditLogs() {
+export function fetchAuditLogs(filterCriteria) {
     return dispatch => {
         return fetch(baseUrl + 'get',
             {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json'
-                }
+                },
+                body : filterCriteria
             })
             .then(response =>
                 response.json().then(data => ({

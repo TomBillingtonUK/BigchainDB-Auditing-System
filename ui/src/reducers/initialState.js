@@ -16,12 +16,5 @@ export default {
         username: "User B"
     },],
     statistics: {},
-    filter: {
-        system: "",
-        username: "",
-        transactionType: "CREATE",
-        timestamp_start: "",
-        timestamp_end: ""
-    },
     settings: {},
 };

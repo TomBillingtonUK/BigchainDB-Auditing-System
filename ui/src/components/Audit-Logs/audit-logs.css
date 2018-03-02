@@ -12,6 +12,7 @@
 }
 
 .filterCard {
-    width: 250px;
+    width: 350px;
     flex: none;
+    padding: 16px;
 }
