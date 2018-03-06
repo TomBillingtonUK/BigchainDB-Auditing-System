@@ -31,7 +31,9 @@ class AuditLogs extends React.Component {
     }
 
     updateFilter(property, value) {
-        this.setState({ filter : { [property] : value}})
+        let newFilter = Object.assign({} , this.state.filter , { [property] : value})
+
+        this.setState({filter: newFilter})
     }
 
     render() {

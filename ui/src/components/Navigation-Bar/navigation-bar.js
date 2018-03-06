@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import IconButton from 'material-ui/IconButton';
 import HomeIcon from 'material-ui/svg-icons/action/home';
 import LogsIcon from 'material-ui/svg-icons/action/reorder';
-import SettingsIcon from 'material-ui/svg-icons/action/settings';
 
 export default class NavigationBar extends React.Component {
 
@@ -23,13 +22,6 @@ export default class NavigationBar extends React.Component {
                         <Link to='/logs'>
                             <IconButton>
                                 <LogsIcon color='#fff'/>
-                            </IconButton>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to='/settings'>
-                            <IconButton>
-                                <SettingsIcon color='#fff'/>
                             </IconButton>
                         </Link>
                     </li>
