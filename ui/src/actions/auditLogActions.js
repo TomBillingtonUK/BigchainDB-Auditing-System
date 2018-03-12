@@ -16,8 +16,8 @@ export function fetchAuditLogs(filterCriteria) {
                 },
                 body: JSON.stringify(
                     {
-                        timeStamp_start: filterCriteria.timeStamp_start,
-                        timeStamp_end: filterCriteria.timeStamp_end,
+                        timeStamp_start: filterCriteria.timestamp_start ? filterCriteria.timestamp_start.toISOString() : null,
+                        timeStamp_end: filterCriteria.timestamp_end ? filterCriteria.timestamp_end.toISOString() : null,
                         system: filterCriteria.system,
                         userName: filterCriteria.userName,
                         transactionType: filterCriteria.transactionType
@@ -33,6 +33,10 @@ export function fetchAuditLogs(filterCriteria) {
             .then(response => {
                 if (response.status === 200) {
                     dispatch(receiveAuditLogs(response.data))
+                }
+                else
+                {
+                    dispatch(receiveAuditLogs({}))
                 }
             })
     }
